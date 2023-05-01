@@ -40,6 +40,7 @@
   background-color: blue;
   color: white;
   text-align: left;
+  
  
 }
 
@@ -81,4 +82,10 @@ hr {
 }
 .answer2-container {
   width: 100px;
+}
+
+.score {
+  font-weight: 400;
+  margin-left: 500px;
+  
 }

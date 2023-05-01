@@ -1,208 +1,389 @@
+const answerButtonOne = document.querySelector('#button-one');
+const answerButtonTwo = document.querySelector('#button-two');
+const answerButtonThree = document.querySelector('#button-three');
+const answerButtonFour = document.querySelector('#button-four');
+const correctAnswerText = document.getElementById('correct-text');
+const wrongAnswerText = document.getElementById('wrong-text')
+
 let Time = document.getElementById('time-left')
-    
+
 function startQuiz() {
-    let timeLeft=75;
-    let timeInterval= setInterval(function()  {
-        if(timeLeft > 0) {
-        Time.textContent= 'Time: ' + timeLeft;
-        timeLeft--;
-        //Call another function here//
-        firstQuestion();
-        }
-
-        else if(timeLeft===0){
-            Time.textContent=''
-            clearInterval(timeInterval)
+    let timeLeft = 75;
+    let timeInterval = setInterval(function () {
+        if (timeLeft > 0) {
+            Time.textContent = 'Time: ' + timeLeft;
+            timeLeft--;
             //Call another function here//
-            
+            //firstQuestion();
         }
 
-        
+        else if (timeLeft === 0) {
+            Time.textContent = ''
+            clearInterval(timeInterval)
+            highscore()
 
 
-    },1000)
+        }
+
+    }, 1000)
+
+    firstQuestion()
+
+}
+
 
 function firstQuestion() {
-        let firstPage = document.querySelectorAll('#firstpageB, #firstpageH1, #firstpageP');
-        firstPage.forEach(function(element) {
-            element.style.display = 'none';
-        });
-          
-        const questionContainer = document.getElementById('question-container');
-        const Line = document.querySelector('hr');
-        Line.style.display = 'block';
-        questionContainer.style.display = 'block';
 
-        const correctAnswer1 = document.getElementById('button-three');
-        const wrongAnswers1 = document.querySelectorAll('#button-one, #button-two, #button-four');
 
-        wrongAnswers1.forEach(function(element) {
-         element.addEventListener('click', function() {
-              let wrongAnswerText = document.getElementById('wrong-text')
-              wrongAnswerText.style.display = 'block';
-              setTimeout(function() {
-                wrongAnswerText.style.display = "none"; // Hide the text after 3 seconds
-              }, 1000)
-              secondQuestion()
-              return;
+    let firstPage = document.querySelectorAll('#firstpageB, #firstpageH1, #firstpageP');
+    firstPage.forEach(function (element) {
+        element.style.display = 'none';
+    });
 
-            });
-            
-         });
-        
+    const questionContainer = document.getElementById('question-container');
+    const Line = document.querySelector('hr');
+    Line.style.display = 'block';
+    questionContainer.style.display = 'block';
 
-        correctAnswer1.addEventListener('click', function() {
-            let correctAnswerText = document.getElementById('correct-text')
-             correctAnswerText.style.display= 'block';
-             setTimeout(function() {
-                correctAnswerText.style.display = "none"; // Hide the text after 3 seconds
-            }, 1000)
-             secondQuestion()
-             return;
 
-        });
 
-        // SecondQuestion()
-        // let secondQ = document.querySelector('h2')
-        //    secondQ.textContent= 'The condition in an if / else statement is enclosed within _____.'
-   
+
+    answerButtonOne.addEventListener('click', function () {
+
+        let answer = answerButtonOne.textContent
+        checkAnswerOne(answer);
+    })
+
+    answerButtonTwo.addEventListener('click', function () {
+
+        let answer = answerButtonTwo.textContent
+        checkAnswerOne(answer);
+    })
+
+    answerButtonThree.addEventListener('click', function () {
+
+        let answer = answerButtonThree.textContent
+        checkAnswerOne(answer);
+    })
+
+    answerButtonFour.addEventListener('click', function () {
+
+        let answer = answerButtonFour.textContent
+        checkAnswerOne(answer);
+    })
+
+
+}
+
+
+
+function checkAnswerOne(answer) {
+    console.log('answer inside checkAnswer', answer)
+
+    if (answer === 'alerts') {
+        correctAnswerText.style.display = 'block';
+        setTimeout(function () {
+            correctAnswerText.style.display = "none"; // Hide the text after 3 seconds
+        }, 500)
+        secondQuestion()
+
+    } else {
+        wrongAnswerText.style.display = 'block';
+        setTimeout(function () {
+            wrongAnswerText.style.display = "none"; // Hide the text after 3 seconds
+        }, 500)
+        secondQuestion()
     }
+}
 
 function secondQuestion() {
+
     let Q = document.querySelector('h2');
-           Q.textContent= 'The condition in an if / else statement is enclosed within _____.';
-    
-    let buttonOne = document.getElementById('button-one');
-    let buttonTwo = document.getElementById('button-two');
-    let buttonThree = document.getElementById('button-three');
-    let buttonFour = document.getElementById('button-four');
+    Q.textContent = 'The condition in an if / else statement is enclosed within _____.';
 
-    buttonOne.textContent='1. quotes';
-    buttonTwo.textContent='2. curly brackets';
-    buttonThree.textContent='3. parentheses';
-    buttonFour.textContent='4. square brackets';
+    answerButtonOne.textContent = 'quotes';
+    answerButtonTwo.textContent = 'curly brackets';
+    answerButtonThree.textContent = 'parentheses';
+    answerButtonFour.textContent = 'square brackets';
 
-           
-    buttonTwo.style.width='120px';
-    buttonThree.style.width='110px';
-    buttonFour.style.width='140px';
-
-    // let correctAnswer2= document.getElementById('button-three')
-    // let wrongAnswer1 = document.querySelector('button-one')
-    // let wrongAnswer2 = document.querySelector('button-two')
-    // let wrongAnswer3 = document.querySelector('button-four')
-    // wrongAnswer1.addEventListener('click', function() {
-    //     // thirdQuestion()
-    //     let wrongAnswerText = document.getElementById('wrong-text')
-    //             wrongAnswerText.style.display = 'block';
-    //             setTimeout(function() {
-    //                 wrongAnswerText.style.display = "none"; // Hide the text after 3 seconds
-    //             }, 1000);
-    // //  thirdQuestion()
-
-    // });
-
-    // wrongAnswer2.addEventListener('click', function() {
-    //     // thirdQuestion()
-    //     let wrongAnswerText = document.getElementById('wrong-text')
-    //             wrongAnswerText.style.display = 'block';
-    //             setTimeout(function() {
-    //                 wrongAnswerText.style.display = "none"; // Hide the text after 3 seconds
-    //             }, 1000);
-    //     // thirdQuestion()
-
-    // });
-
-    // wrongAnswer3.addEventListener('click', function() {
-    //     thirdQuestion()
-    //     let wrongAnswerText = document.getElementById('wrong-text')
-    //             wrongAnswerText.style.display = 'block';
-    //             setTimeout(function() {
-    //                 wrongAnswerText.style.display = "none"; // Hide the text after 3 seconds
-    //             }, 1000);
-    // //  thirdQuestion()
-
-    // });
-    // thirdQuestion()
+    answerButtonFour.style.width = '115px';
 
 
-    const correctAnswer2 = document.getElementById('button-three');
-    const wrongAnswers2 = document.querySelectorAll('#button-one, #button-two, #button-four');
+    answerButtonOne.addEventListener('click', function () {
 
-    wrongAnswers2.forEach(function(element) {
-        element.addEventListener('click', function() {
-            let wrongAnswerText = document.getElementById('wrong-text')
-            wrongAnswerText.style.display = 'block';
-            setTimeout(function() {
-                wrongAnswerText.style.display = "none"; // Hide the text after 3 seconds
-            }, 1000);
-         thirdQuestion()
-   
-        });
-         
-    });
-       
-   
-        correctAnswer2.addEventListener('click', function() {
-            let correctAnswerText = document.getElementById('correct-text')
-            correctAnswerText.style.display= 'block';
-            setTimeout(function() {
+        let answerTwo = answerButtonOne.textContent
+        checkAnswerTwo(answerTwo);
+    })
+
+    answerButtonTwo.addEventListener('click', function () {
+
+        let answerTwo = answerButtonTwo.textContent
+        checkAnswerTwo(answerTwo);
+    })
+
+    answerButtonThree.addEventListener('click', function () {
+
+        let answerTwo = answerButtonThree.textContent
+        checkAnswerTwo(answerTwo);
+    })
+
+    answerButtonFour.addEventListener('click', function () {
+
+        let answerTwo = answerButtonFour.textContent
+        checkAnswerTwo(answerTwo);
+    })
+
+
+
+
+
+}
+
+function checkAnswerTwo(answerTwo) {
+
+    if (answerTwo === 'parentheses') {
+        correctAnswerText.style.display = 'block';
+        setTimeout(function () {
             correctAnswerText.style.display = "none"; // Hide the text after 3 seconds
-            }, 1000);
-             thirdQuestion();
-        });
-
-        
-
-       
-           
+        }, 500)
+        thirdQuestion()
+        return;
     }
 
-    
+
+    else {
+        wrongAnswerText.style.display = 'block';
+        setTimeout(function () {
+            wrongAnswerText.style.display = "none"; // Hide the text after 3 seconds
+        }, 500)
+        thirdQuestion()
+    }
+}
+
+
 function thirdQuestion() {
-     let Q = document.querySelector('h2');
-     Q.textContent= 'Arrays in JavaScript can be used to store _____.';
- 
-     let buttonOne = document.getElementById('button-one');
-     let buttonTwo = document.getElementById('button-two');
-     let buttonThree = document.getElementById('button-three');
-     let buttonFour = document.getElementById('button-four');
+    console.log('calling third function')
+    let Q = document.querySelector('h2');
+    Q.textContent = 'Arrays in JavaScript can be used to store _____.';
 
-     buttonOne.textContent='1. numbers & strings';
-     buttonTwo.textContent='2. other arrays';
-     buttonThree.textContent='3. booleans';
-     buttonFour.textContent='4. all of the above';
 
-     buttonOne.style.width='100px';
-     buttonTwo.style.width='120px';
-     buttonThree.style.width='110px';
-     buttonFour.style.width='140px';
+
+
+    answerButtonOne.textContent = 'numbers & strings';
+    answerButtonTwo.textContent = 'other arrays';
+    answerButtonThree.textContent = 'booleans';
+    answerButtonFour.textContent = 'all of the above';
+
+
+
+    answerButtonOne.style.width = '130px';
+    answerButtonTwo.style.width = '90px';
+    answerButtonThree.style.width = '70px';
+    answerButtonFour.style.width = '120px';
+
+
+
+    answerButtonOne.addEventListener('click', function () {
+
+        let answerThree = answerButtonOne.textContent
+        checkAnswerThree(answerThree);
+    })
+
+    answerButtonTwo.addEventListener('click', function () {
+
+        let answerThree = answerButtonTwo.textContent
+        checkAnswerThree(answerThree);
+    })
+
+    answerButtonThree.addEventListener('click', function () {
+
+        let answerThree = answerButtonThree.textContent
+        checkAnswerThree(answerThree);
+    })
+
+    answerButtonFour.addEventListener('click', function () {
+
+        let answerThree = answerButtonFour.textContent
+        checkAnswerThree(answerThree);
+    })
+}
+
+
+function checkAnswerThree(answerThree) {
+
+    if (answerThree === 'all of the above') {
+        correctAnswerText.style.display = 'block';
+        setTimeout(function () {
+            correctAnswerText.style.display = "none"; // Hide the text after 3 seconds
+        }, 500)
+        fourthQuestion()
+        return;
     }
+    else {
+        wrongAnswerText.style.display = 'block';
+        setTimeout(function () {
+            wrongAnswerText.style.display = "none"; // Hide the text after 3 seconds
+        }, 500)
+        fourthQuestion()
+    }
+}
 
-    const correctAnswer3 = document.getElementById('button-three');
-    const wrongAnswers3 = document.querySelectorAll('#button-one, #button-two, #button-four');
-    wrongAnswers3.forEach(function(element) {
-        element.addEventListener('click', function() {
-             let wrongAnswerText = document.getElementById('wrong-text')
-             wrongAnswerText.style.display = 'block';
-            setTimeout(function() {
-               wrongAnswerText.style.display = "none"; // Hide the text after 3 seconds
-            }, 1000);
-         fourthQuestion()
+function fourthQuestion() {
+    console.log('calling fourth function')
+    let Q = document.querySelector('h2');
+    Q.textContent = 'String values must be enclosed within _______ when being assigned to variables.';
 
-        });
-           
-    });
-       
 
-        correctAnswer3.addEventListener('click', function() {
-           let correctAnswerText = document.getElementById('correct-text')
-           correctAnswerText.style.display= 'block';
-           setTimeout(function() {
-               correctAnswerText.style.display = "none"; // Hide the text after 3 seconds
-             }, 1000);
-         fourthQuestion();
-        });
+
+
+    answerButtonOne.textContent = 'commas';
+    answerButtonTwo.textContent = 'curly brackets';
+    answerButtonThree.textContent = 'quotes';
+    answerButtonFour.textContent = 'parentheses';
+
+
+
+    answerButtonOne.style.width = '60px';
+    answerButtonTwo.style.width = '100px';
+    answerButtonThree.style.width = '50px';
+    answerButtonFour.style.width = '90px';
+
+
+
+    answerButtonOne.addEventListener('click', function () {
+
+        let answerFour = answerButtonOne.textContent
+        checkAnswerFour(answerFour);
+    })
+
+    answerButtonTwo.addEventListener('click', function () {
+
+        let answerFour = answerButtonTwo.textContent
+        checkAnswerFour(answerFour);
+    })
+
+    answerButtonThree.addEventListener('click', function () {
+
+        let answerFour = answerButtonThree.textContent
+        checkAnswerFour(answerFour);
+    })
+
+    answerButtonFour.addEventListener('click', function () {
+
+        let answerFour = answerButtonFour.textContent
+        checkAnswerFour(answerFour);
+    })
+}
+
+function checkAnswerFour(answerFour) {
+
+    if (answerFour === 'quotes') {
+        correctAnswerText.style.display = 'block';
+        setTimeout(function () {
+            correctAnswerText.style.display = "none"; // Hide the text after 3 seconds
+        }, 500)
+        fifthQuestion()
+        return;
+    }
+    else {
+        wrongAnswerText.style.display = 'block';
+        setTimeout(function () {
+            wrongAnswerText.style.display = "none"; // Hide the text after 3 seconds
+        }, 500)
+        fifthQuestion()
+    }
+}
+
+function fifthQuestion() {
+    console.log('calling fourth function')
+    let Q = document.querySelector('h2');
+    Q.textContent = 'A very useful tool used during development and debugging for printing content to the debugger is:';
+
+
+
+
+    answerButtonOne.textContent = 'JavaScript';
+    answerButtonTwo.textContent = 'terminal/bash';
+    answerButtonThree.textContent = 'for loops';
+    answerButtonFour.textContent = 'console.log';
+
+
+
+    answerButtonOne.style.width = '80px';
+    answerButtonTwo.style.width = '90px';
+    answerButtonThree.style.width = '70px';
+    answerButtonFour.style.width = '80px';
+
+
+
+    answerButtonOne.addEventListener('click', function () {
+
+        let answerFive = answerButtonOne.textContent
+        checkAnswerFive(answerFive);
+    })
+
+    answerButtonTwo.addEventListener('click', function () {
+
+        let answerFive = answerButtonTwo.textContent
+        checkAnswerFive(answerFive);
+    })
+
+    answerButtonThree.addEventListener('click', function () {
+
+        let answerFive = answerButtonThree.textContent
+        checkAnswerFive(answerFive);
+    })
+
+    answerButtonFour.addEventListener('click', function () {
+
+        let answerFive = answerButtonFour.textContent
+        checkAnswerFive(answerFive);
+    })
+}
+
+function checkAnswerFive(answerFive) {
+
+    if (answerFive === 'console.log') {
+        correctAnswerText.style.display = 'block';
+        setTimeout(function () {
+            correctAnswerText.style.display = "none"; // Hide the text after 3 seconds
+        }, 500)
+        highscore()
+
+    }
+    else {
+        wrongAnswerText.style.display = 'block';
+        setTimeout(function () {
+            wrongAnswerText.style.display = "none"; // Hide the text after 3 seconds
+        }, 500)
+        highscore()
+    }
+}
+
+function highscore() {
+
+    let Q = document.querySelector('h2');
+    Q.textContent = 'All done!';
+
+    answerButtonOne.style.display = 'none';
+    answerButtonTwo.style.display = 'none';
+    answerButtonThree.style.display = 'none';
+    answerButtonFour.style.display = 'none';
+
+
+
+    // Create a new paragraph element
+    let newParagraph = document.getElementById('highscore-p');
+
+    // Add text content to the paragraph element
+    newParagraph.style.display = 'block'
+    newParagraph.textContent = 'Your final score is' + timeLeft;
+    newParagraph.style.fontWeight = 'bold'
+
+
+    // // Add the paragraph element to the HTML document
+    // const container = document.querySelector('answer-container');
+    // container.appendChild(newParagraph);
 
 
 }
