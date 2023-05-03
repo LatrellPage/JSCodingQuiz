@@ -3,6 +3,7 @@ This is a timed JavaScript quiz that challenges your knowledge of the language w
 
 # Getting Started
 To take the quiz, you will need a web browser and an internet connection. Simply open the index.html file in your browser and click on the "Start Quiz" button to begin.
+![Screenshot (13)](https://user-images.githubusercontent.com/127454292/235813984-f0c2e170-90f9-4cc4-b2a1-41e6c320dde1.png)
 
 # How to Play
 Once you click the "Start Quiz" button, the timer will start counting down from 75 seconds. You will be presented with 5 multiple-choice questions, one at a time. Read each question carefully and select the answer you think is correct. You can only select one answer per question.
