@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+   <a href="Highscore.html"> Highscores
+   </a>
+
+   <p id="time-left" class="time-box">Time: 75</p>
+
+   <h1 id="firstpageH1" class="header">Coding Quiz Challenge</h1>
+
+   <p id="firstpageP" class="text-box">Try to answer the following code-related questions within the time limit. Keep in
+      mind that incorrect answers will penalize your scoretime by ten seconds!</p>
+
+   <button id="firstpageB" onclick="startQuiz()" class="start-quiz">Start Quiz</button>
+
+   <span></span>
+   <div class="horizontal-line" id="hline"></div>
+   <div id="question-container" style="display:none;">
+      <h2>Commonly used data types DO NOT include:</h2>
+      
+      <div class="answer-container">
+         <button id="button-one" class="answer-btn">strings</button>
+         <button id="button-two" class="answer-btn">booleans</button>
+         <button id="button-three" class="answer-btn">alerts</button>
+         <button id="button-four" class="answer-btn">numbers</button>
+      </div>
+   </div>
+
+   <p id="highscore-p" class="score" style="display: none;">score</p>
+
+   <span></span>
+   <hr style="display:none;">
+
+   <div style="display:none;" id="wrong-text">
+      <p class="wrong">Wrong</p>
+   </div>
+
+   <div style="display:none;" id="correct-text">
+      <p class="correct">Correct!</p>
+   </div>
+
+   <!-- <div style="display:none;" class="answer2-container" id="question2">
+    <button id="button-one" class="answer-btn">1. quotes</button>
+    <button id="button-two" class="answer-btn">2. curly brackets</button>
+    <button id="button-three" class="answer-btn">3. parentheses</button>
+    <button id="button-four"  class="answer-btn">4. square brackets</button>
+ </div> -->
+
+   <script src="script.js"></script>
+</body>
+
+</html>
