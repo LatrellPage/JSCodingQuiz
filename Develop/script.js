@@ -6,13 +6,14 @@ const correctAnswerText = document.getElementById('correct-text');
 const wrongAnswerText = document.getElementById('wrong-text')
 
 let Time = document.getElementById('time-left')
-
+let timeInterval;
+let timeLeft;
 function startQuiz() {
-    let timeLeft = 75;
-    let timeInterval = setInterval(function () {
+    timeLeft = 75;
+    timeInterval = setInterval(function () {
         if (timeLeft > 0) {
-            Time.textContent = 'Time: ' + timeLeft;
             timeLeft--;
+            Time.textContent = 'Time: ' + timeLeft;
             //Call another function here//
             //firstQuestion();
         }
@@ -30,7 +31,26 @@ function startQuiz() {
     firstQuestion()
 
 }
+// implement botton code for all functions, make sure they are universal, and remove "remove remove eventlistener"
+function buttonOneClick(){
+    let answer = answerButtonOne.textContent
+    checkAnswerOne(answer);
+}
 
+function buttonTwoClick(){
+    let answer = answerButtonOne.textContent
+    checkAnswerOne(answer);
+}
+
+function buttonThreeClick(){
+    let answer = answerButtonOne.textContent
+    checkAnswerOne(answer);
+}
+
+function buttonFourClick(){
+    let answer = answerButtonOne.textContent
+    checkAnswerOne(answer);
+}
 
 function firstQuestion() {
 
@@ -47,32 +67,41 @@ function firstQuestion() {
 
 
 
+    
 
-    answerButtonOne.addEventListener('click', function () {
+    answerButtonOne.addEventListener('click',buttonOneClick)
 
-        let answer = answerButtonOne.textContent
-        checkAnswerOne(answer);
-    })
+    
 
-    answerButtonTwo.addEventListener('click', function () {
+    answerButtonTwo.addEventListener('click',buttonTwoClick)
 
-        let answer = answerButtonTwo.textContent
-        checkAnswerOne(answer);
-    })
+   
 
-    answerButtonThree.addEventListener('click', function () {
+    answerButtonThree.addEventListener('click',buttonThreeClick)
 
-        let answer = answerButtonThree.textContent
-        checkAnswerOne(answer);
-    })
+    
 
-    answerButtonFour.addEventListener('click', function () {
+    answerButtonFour.addEventListener('click',buttonFourClick)
 
-        let answer = answerButtonFour.textContent
-        checkAnswerOne(answer);
-    })
+    // answerButtonTwo.addEventListener('click', function () {
 
+    //     let answer = answerButtonTwo.textContent
+    //     checkAnswerOne(answer);
+    // })
 
+    // answerButtonThree.addEventListener('click', function () {
+
+    //     let answer = answerButtonThree.textContent
+    //     checkAnswerOne(answer);
+    // })
+
+    // answerButtonFour.addEventListener('click', function () {
+
+    //     let answer = answerButtonFour.textContent
+    //     checkAnswerOne(answer);
+    // })
+
+    
 }
 
 
@@ -108,6 +137,7 @@ function secondQuestion() {
 
     answerButtonFour.style.width = '115px';
 
+    
 
     answerButtonOne.addEventListener('click', function () {
 
@@ -133,14 +163,12 @@ function secondQuestion() {
         checkAnswerTwo(answerTwo);
     })
 
-
-
-
+    
 
 }
 
 function checkAnswerTwo(answerTwo) {
-
+  console.log(answerTwo)
     if (answerTwo === 'parentheses') {
         correctAnswerText.style.display = 'block';
         setTimeout(function () {
@@ -166,7 +194,7 @@ function thirdQuestion() {
     let Q = document.querySelector('h2');
     Q.textContent = 'Arrays in JavaScript can be used to store _____.';
 
-
+    
 
 
     answerButtonOne.textContent = 'numbers & strings';
@@ -234,7 +262,7 @@ function fourthQuestion() {
     Q.textContent = 'String values must be enclosed within _______ when being assigned to variables.';
 
 
-
+    
 
     answerButtonOne.textContent = 'commas';
     answerButtonTwo.textContent = 'curly brackets';
@@ -299,7 +327,7 @@ function fifthQuestion() {
     let Q = document.querySelector('h2');
     Q.textContent = 'A very useful tool used during development and debugging for printing content to the debugger is:';
 
-
+    
 
 
     answerButtonOne.textContent = 'JavaScript';
@@ -361,7 +389,7 @@ function checkAnswerFive(answerFive) {
 }
 
 function highscore() {
-
+    clearInterval(timeInterval)
     let Q = document.querySelector('h2');
     Q.textContent = 'All done!';
 
@@ -377,7 +405,7 @@ function highscore() {
 
     // Add text content to the paragraph element
     newParagraph.style.display = 'block'
-    newParagraph.textContent = 'Your final score is' + timeLeft;
+    newParagraph.textContent = 'Your final score is ' + timeLeft;
     newParagraph.style.fontWeight = 'bold'
 
 
