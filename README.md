@@ -2,7 +2,7 @@
 This is a timed JavaScript quiz that challenges your knowledge of the language with 5 multiple-choice questions. The quiz features a 75-second timer and a penalty system that deducts 10 seconds from the clock for each wrong answer.
 
 # Getting Started
-To take the quiz, you will need a web browser and an internet connection. Simply open the index.html file in your browser and click on the "Start Quiz" button to begin.
+To take the quiz, you will need a web browser and an internet connection. Simply open (https://latrellpage.github.io/JSCodingQuiz/) file in your browser and click on the "Start Quiz" button to begin.
 ![Screenshot (13)](https://user-images.githubusercontent.com/127454292/235813984-f0c2e170-90f9-4cc4-b2a1-41e6c320dde1.png)
 
 # How to Play
